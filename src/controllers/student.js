@@ -1,11 +1,13 @@
+import { ApiError } from "../middlewares/apiError.js"
+import { ApiResponse } from "../middlewares/apiResponse.js"
 import * as StudentService from "../services/service.js"
 
-export const createStudent = async (req, res) => {
+export const createStudent = async (req, res, next) => {
     try {
         const createdStudent = await StudentService.createStudent(req.body)
-        res.status(200).json({ status: true, data: createdStudent })
+        res.status(200).json(new ApiResponse(201, createdStudents, "Created"))
     } catch (error) {
-        console.log(error)
-        res.status(400).json({ status: false, error: "Not create" })
+        throw new ApiError(500, error);
+        // next(error)
     }
 }

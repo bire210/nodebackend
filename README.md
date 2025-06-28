@@ -20,7 +20,7 @@ This project demonstrates how to build a robust and maintainable Node.js REST AP
 
 4. **Industry-level Code & Best Practices**  
    - Environment-based configuration  
-   - Express Validator for validation  
+   - Zod for validation  
    - Proper logging  
    - Use of async/await with try/catch  
    - Meaningful HTTP status codes  
